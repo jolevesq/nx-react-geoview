@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "projects": {
+    "geo-view": "apps/geo-view",
+    "geo-view-e2e": "apps/geo-view-e2e",
+    "shell": "libs/shell"
+  }
+}

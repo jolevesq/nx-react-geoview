@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>GeoView</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <style>
+      .llwp-map {
+    height: 800px;
+    max-height: 90vh;
+}
+.leaflet-container {
+    display: flex;
+    height: 100%;
+    pointer-events: all;
+    cursor: default !important;
+}
+    </style>
+  </head>
+  <body>
+    <!-- <div id="root"> -->
+
+      <div
+                id="LNG1"
+                class="llwp-map"
+                data-leaflet="{ 'name': 'LCCEN', 'projection': 3978, 'zoom': 4, 'center': [60,-100], 'language': 'fr-CA', 'basemapOptions': { 'id': 'transport', 'shaded': true, 'labeled': true }, 'layers': [] }"
+            ></div>
+    <!-- </div> -->
+  </body>
+</html>

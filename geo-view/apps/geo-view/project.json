@@ -1,0 +1,70 @@
+{
+  "root": "apps/geo-view",
+  "sourceRoot": "apps/geo-view/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/geo-view",
+        "index": "apps/geo-view/src/index.html",
+        "baseHref": "/",
+        "main": "apps/geo-view/src/main.tsx",
+        "polyfills": "apps/geo-view/src/polyfills.ts",
+        "tsConfig": "apps/geo-view/tsconfig.app.json",
+        "assets": ["apps/geo-view/src/favicon.ico", "apps/geo-view/src/assets"],
+        "styles": ["apps/geo-view/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/geo-view/src/environments/environment.ts",
+              "with": "apps/geo-view/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "geo-view:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "geo-view:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/geo-view/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/geo-view"],
+      "options": {
+        "jestConfig": "apps/geo-view/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

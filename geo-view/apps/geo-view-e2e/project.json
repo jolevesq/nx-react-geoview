@@ -1,0 +1,28 @@
+{
+  "root": "apps/geo-view-e2e",
+  "sourceRoot": "apps/geo-view-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/geo-view-e2e/cypress.json",
+        "devServerTarget": "geo-view:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "geo-view:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/geo-view-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["geo-view"]
+}
